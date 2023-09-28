@@ -46,7 +46,24 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.config/nvim/lua/oldcastor/packer.lua<CR>");
 
 vim.keymap.set("n", "<leader><leader>", function()
-    vim.cmd("so")
+    vim.cmd("so ~/.config/nvim/lua/oldcastor/remap.lua")
+end)
+
+vim.keymap.set("n", "<leader>bd", function ()
+    vim.cmd(":bd")
+end)
+
+vim.keymap.set("n", "<leader>bb", function ()
+    vim.cmd(":ls")
+end)
+
+vim.keymap.set("n", "<leader>bh", function ()
+    vim.cmd(":bnext")
+end)
+
+vim.keymap.set("n", "<leader>bl", function ()
+    vim.cmd(":bprev")
 end)
 
 
+vim.keymap.set("i", "<M-l>", "<Right>")
