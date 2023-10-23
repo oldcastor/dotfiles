@@ -44,6 +44,18 @@ lsp.configure('lua_ls', {
   }
 })
 
+lsp.configure('intelephense', {
+  setup = {
+    settings = {
+      intelephense = {
+        telemetry = {
+          enable = false
+        }
+      }
+    }
+  }
+})
+
 lsp.on_attach(function(client, bufnr)
   local opts = { buffer = bufnr, remap = false }
   vim.keymap.set("n", "<leader>vo", function() vim.lsp.omnifunc() end, opts)
