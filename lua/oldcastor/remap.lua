@@ -65,5 +65,10 @@ vim.keymap.set("n", "<leader>bl", function ()
     vim.cmd(":bprev")
 end)
 
+vim.keymap.set("n", "<leader>t", function ()
+    vim.cmd(":b term")
+end)
+
+
 
 vim.keymap.set("i", "<M-l>", "<Right>")
