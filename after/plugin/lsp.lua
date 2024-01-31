@@ -36,6 +36,7 @@ lsp.setup_nvim_cmp({
 })
 
 lsp.configure('lua_ls', {
+  --single_file_support = false,
   settings = {
     Lua = {
       diagnostics = { globals = { 'vim' }
@@ -43,7 +44,6 @@ lsp.configure('lua_ls', {
     }
   }
 })
-
 lsp.configure('intelephense', {
   setup = {
     settings = {
@@ -56,6 +56,14 @@ lsp.configure('intelephense', {
   }
 })
 
+
+lsp.configure('html',
+  {
+    filetypes =
+    {
+      'html', 'php'
+    }
+  })
 lsp.on_attach(function(client, bufnr)
   local opts = { buffer = bufnr, remap = false }
   vim.keymap.set("n", "<leader>vo", function() vim.lsp.omnifunc() end, opts)
@@ -70,8 +78,6 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
-
-
 lsp.setup()
 vim.diagnostic.config({
   virtual_text = true
