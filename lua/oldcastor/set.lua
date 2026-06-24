@@ -1,4 +1,5 @@
 vim.opt.guicursor = ""
+vim.g.lazyvim_prettier_needs_config = false
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
