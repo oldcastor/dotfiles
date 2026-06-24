@@ -12,6 +12,9 @@ return {
     "saadparwaiz1/cmp_luasnip",
     "j-hui/fidget.nvim",
   },
+  opts = {
+    document_highlight = { enabled = true },
+  },
 
   config = function()
     local cmp = require('cmp')
@@ -73,6 +76,21 @@ return {
               }
             },
             filetypes = { 'css', 'html', 'blade' }
+          }
+        end,
+        ['ts_ls'] = function()
+          lspconfig.ts_ls.setup {
+            capabilities = capabilities,
+            init_options = {
+              plugins = { -- I think this was my breakthrough that made it work
+                {
+                  name = "@vue/typescript-plugin",
+                  location = "/usr/local/lib/node_modules/@vue/language-server",
+                  languages = { "vue" },
+                },
+              },
+            },
+            filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
           }
         end,
       }
